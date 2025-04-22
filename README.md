@@ -3,11 +3,11 @@
 ![Python 3.7](https://img.shields.io/badge/python-3.7-green.svg?style=plastic)
 ![pytorch 1.7.0](https://img.shields.io/badge/pytorch-1.7.0-green.svg?style=plastic)
 
-![overview](.\asset\overview.png)
+<img src=".\asset\overview.png" alt="overview" style="zoom:120%;" />
 
 FCNet encompasses three colorization approaches, *i.e.*, single- or multi-reference image-guided colorization in (a), sample-guided colorization in (b), and automatic colorization in (c). In (a), the first column is the grayscale input, and the subsequent five columns show the reference and the corresponding single-reference colorization results. Then, the last column is a multi-reference colorization result, taking colors from different facial components of the references. In (b), the results are generated according to the sampled single or multiple-color representations. In (c), we give our results under automatic settings and the results of competing methods.
 
-![overall_structure](.\asset\architecture.png)
+<img src=".\asset\architecture.png" alt="architecture" style="zoom:120%;" />
 
 Overview structure of our proposed FCNet: Two main components *g* and the colorization network *f*.
 
@@ -87,7 +87,7 @@ Result of *single- or multi-reference image-guided* colorization.
 
 <img src=".\asset\sampling.png" alt="sampling" style="zoom:120%;" />
 
-Result of *single- or multi-reference image-guided* colorization.
+Result of *single- or multi-reference sampling-guided* colorization.
 
 <img src=".\asset\automatic.png" alt="automatic" style="zoom:120%;" />
 
