@@ -36,7 +36,7 @@ Overview structure of our proposed FCNet: Two main components *g* and the colori
 
 We provide quick test code with the pretrained model. 
 
-1. Download this repo, as well as the pretrained models from [Google Drive](https://drive.google.com/drive/folders/1NOuGxU8ReEJW860SYkGE4n5G47-7JJ9W?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/10Z6uMGWStogjMUyWygJLwQ?pwd=FCNT), and unzip.
+1. Download this repo, as well as the pretrained models from [Google Drive](https://drive.google.com/drive/folders/1NOuGxU8ReEJW860SYkGE4n5G47-7JJ9W?usp=drive_link) or [Baidu Drive](https://pan.baidu.com/s/1cohFgBInFZ7dMJE1EHV66w?pwd=FCNT), and unzip.
 
 2. Modify the paths to the test dataset and pretrained model in the following test scripts for configuration.
 
