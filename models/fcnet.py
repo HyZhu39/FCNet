@@ -993,7 +993,7 @@ class Generator(nn.Module):
         for idx in range(len(self.decode)):
             if idx>= 1:
                 x = self.SPADEs[idx-1](x, x_gray)
-            x = self.decode[idx](x, s=None)
+            x = self.decode[idx](x)
                     
         x_ab = self.to_rgb(x)
         fake_rgb = self.convert_color.lab_to_rgb(torch.cat((x_in * 50.0 + 50.0, x_ab * 110.0), dim=1))   # 0,1
@@ -1040,7 +1040,7 @@ class Generator(nn.Module):
             if idx>= 1:
                 #x = self.SPADEs[idx-1](x, masks_x_org)
                 x = self.SPADEs[idx-1](x, x_gray)
-            x = self.decode[idx](x, s=None)
+            x = self.decode[idx](x)
         
         x_ab = self.to_rgb(x)
         fake_rgb = self.convert_color.lab_to_rgb(torch.cat((x_in * 50.0 + 50.0, x_ab * 110.0), dim=1))   #0,1
