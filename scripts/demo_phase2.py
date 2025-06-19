@@ -90,7 +90,6 @@ def main(config, args):
 
     n_imgname = sorted(os.listdir(args.source_dir))
     m_imgname = sorted(os.listdir(args.reference_dir))
-    z_names = sorted(os.listdir(Z_path))
     
     gt_path = ''
     
@@ -141,6 +140,7 @@ def main(config, args):
                 vis_train_single(result_1.detach().cpu(), idxx, sav_path_single)
                 sav_tensor(z1, idxx, sav_path_z)
         elif TEST_W_single_Z:
+            z_names = sorted(os.listdir(Z_path))
             for idxx in range(len(z_names)):
                 z1 = torch.load(os.path.join(Z_path, str(idxx)+'.pth'))
                 result_1 = inference.transfer_for_clustering_with_singleZ(imgA, z1).to('cpu')
@@ -152,6 +152,7 @@ def main(config, args):
             
                 vis_train_single(result_1.detach().cpu(), idxx, sav_path_single) 
         elif TEST_W_mul_Z:
+            z_names = sorted(os.listdir(Z_path))
             for idxx in range(len(z_names)):
                 z_lips = torch.load(os.path.join(Z_path, str((idxx+0)%len(z_names))+'.pth'))
                 z_skin = torch.load(os.path.join(Z_path, str((idxx+1)%len(z_names))+'.pth'))
