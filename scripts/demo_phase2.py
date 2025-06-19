@@ -100,9 +100,9 @@ def main(config, args):
         imgA = transforms.Resize(RESIZE_SIZE)(imgA)
         imgA_vis = transform(imgA).unsqueeze(0)
         
-        reference_gt = Image.open(os.path.join(gt_path, n_imgname[i])).convert('RGB')
-        reference_gt = transforms.Resize(RESIZE_SIZE)(reference_gt)
-        reference_gt = transform(reference_gt).unsqueeze(0)
+        #reference_gt = Image.open(os.path.join(gt_path, n_imgname[i])).convert('RGB')
+        #reference_gt = transforms.Resize(RESIZE_SIZE)(reference_gt)
+        #reference_gt = transform(reference_gt).unsqueeze(0)
         
         print(imgA.size)
         
@@ -131,8 +131,7 @@ def main(config, args):
 
                 vis_train([imgA_vis.cpu(),
                        result_1.detach().cpu(),
-                       reference_gt.cpu()
-                       ], idxx, sav_path)
+                       ], idxx, sav_path) # reference_gt.cpu()
             
                 vis_train_single(result_1.detach().cpu(), idxx, sav_path_single)
                 sav_tensor(z1, idxx, sav_path_z)
@@ -144,8 +143,7 @@ def main(config, args):
 
                 vis_train([imgA_vis.cpu(),
                        result_1.detach().cpu(),
-                       reference_gt.cpu()
-                       ], idxx, sav_path)
+                       ], idxx, sav_path) # reference_gt.cpu()
             
                 vis_train_single(result_1.detach().cpu(), idxx, sav_path_single) 
         elif TEST_W_mul_Z:
@@ -166,8 +164,7 @@ def main(config, args):
                        result_4.detach().cpu(),
                        result_5.detach().cpu(),
                        result_all.detach().cpu(),
-                       reference_gt.cpu()
-                       ], idxx, sav_path)
+                       ], idxx, sav_path) # reference_gt.cpu()
             
                 vis_train_single(result_all.detach().cpu(), idxx, sav_path_single) 
 
