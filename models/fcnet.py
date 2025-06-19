@@ -458,8 +458,8 @@ class AdainResBlk_dummy(nn.Module):
         x = self.conv2(x)
         return x
 
-    def forward(self, x, s=None):
-        out = self._residual(x, s)
+    def forward(self, x):
+        out = self._residual(x)
         if self.w_hpf == 0:
             out = (out + self._shortcut(x)) / math.sqrt(2)
         return out
