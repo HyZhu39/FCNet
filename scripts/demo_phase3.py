@@ -47,25 +47,17 @@ def main(config, args):
     inference = Inference(config, args, args.load_path)
 
     n_imgname = sorted(os.listdir(args.source_dir))
-    m_imgname = sorted(os.listdir(args.reference_dir))
 
-    for i, (imga_name, imgb_name) in enumerate(zip(n_imgname, m_imgname)):
+    for i, (imga_name) in enumerate((n_imgname)):
         imgA = Image.open(os.path.join(args.source_dir, imga_name)).convert('RGB')
-        imgB = Image.open(os.path.join(args.reference_dir,
-                                       imga_name.split('/')[-1].replace('.png', '.png'))).convert('RGB')
 
         imgA = transforms.Resize(RESIZE_SIZE)(imgA)
-        imgB = transforms.Resize(torch.from_numpy(np.array(imgA)).shape[-2])(imgB)
         
         result_1 = inference.transfer_phase3(imgA).to('cpu')
         
         imgA = transform(imgA).unsqueeze(0)
-        imgB = transform(imgB).unsqueeze(0)
-        
-        print(imgA.shape,result_1.shape,imgB.shape)
         
         basename = imga_name.split('/')[-1].split('.')[0]
-        vis_train([imgA, result_1, imgB], basename)
         vis_train_single(result_1, basename)
 
 
@@ -80,9 +72,6 @@ if __name__ == "__main__":
 
     parser.add_argument("--source-dir", type=str,
                         default="")
-
-    parser.add_argument("--reference-dir", type=str,
-                        default="/home/ubuntuu/hdd/Dataset/CelebA-HQ-img_256/CelebA-HQ-img/")
 
     parser.add_argument("--gpu", default='0', type=str, help="GPU id to use.")
 
