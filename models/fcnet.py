@@ -435,7 +435,7 @@ class AdainResBlk_dummy(nn.Module):
         self.actv = actv
         self.upsample = upsample
         self.learned_sc = dim_in != dim_out
-        self._build_weights(dim_in, dim_out, style_dim)
+        self._build_weights(dim_in, dim_out)
 
     def _build_weights(self, dim_in, dim_out):
         self.conv1 = nn.Conv2d(dim_in, dim_out, 3, 1, 1)
