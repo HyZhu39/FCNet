@@ -40,6 +40,10 @@ _C.TRAINING.PHASE2_loadpath = ''
 _C.TRAINING.PHASE3_loadpath = ''
 _C.TRAINING.DIRECT_PHASE3_loadpath = ''
 
+_C.PHASE2_loadpath = ''
+_C.PHASE3_loadpath = ''
+_C.DIRECT_PHASE3_loadpath = ''
+
 # Loss weights
 _C.LOSS = CfgNode()
 _C.LOSS.LAMBDA_A = 10.0
