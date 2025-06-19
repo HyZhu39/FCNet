@@ -77,7 +77,7 @@ class Solver():
         self.epoch = 1
 
         if inference:
-            self.G.load_state_dict(torch.load(inference + '/G.pth', map_location='cpu'))
+            self.G.load_state_dict(torch.load(inference, map_location='cpu'))
             self.G = self.G.to(args.device).eval()
             return
         self.double_d = config.TRAINING.DOUBLE_D
