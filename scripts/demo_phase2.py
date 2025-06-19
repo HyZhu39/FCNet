@@ -93,11 +93,8 @@ def main(config, args):
     
     gt_path = ''
     
-    all_names = sorted(os.listdir(''))
     
     for i in range(len(n_imgname)):
-        if n_imgname[i] not in all_names:
-            continue
         
         imgA = Image.open(os.path.join(args.source_dir, n_imgname[i])).convert('RGB')
         imgA = transforms.Resize(RESIZE_SIZE)(imgA)
